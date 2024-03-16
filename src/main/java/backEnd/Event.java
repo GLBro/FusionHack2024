@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Event {
   private String name;
   private ArrayList<Resource> resourcesAffected;
+  private double[] resourceAffectChange;
 
   public Event(String name) {
     this.name = name;
@@ -26,5 +27,9 @@ public class Event {
 
   public ArrayList<Resource> getResourcesAffected() {
     return resourcesAffected;
+  }
+
+  public double[] getResourceAffectChange() {
+    return resourceAffectChange;
   }
 }

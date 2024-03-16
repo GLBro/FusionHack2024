@@ -26,4 +26,12 @@ public class Resource {
     return name;
   }
 
+  public double calculateChange(){
+    /*  TODO: calculate the % change from the ORIGINAL cost, stored in lastCost
+          Need to do this to send to the front end
+          Will use the function(s) from Event, getResourcesAffected and getResourceAffectChange
+     */
+    return 0.00;
+  }
+
 }

@@ -1,5 +1,7 @@
 package backEnd;
 
+import java.util.ArrayList;
+
 public class Simulation {
   private EventPicker eventPicker;
   private ResourceInitialisation resourceInitialisation;
@@ -29,11 +31,18 @@ public class Simulation {
   }
 
   public String[] getResourceNames(){
-    return new String[3];
+    ArrayList<Resource> resources;
+    resources = resourceInitialisation.getResources();
+    String[] resourceNames = new String[resources.size()];
+    for (int i=0;i<resources.size();i++){
+      resourceNames[i] = resources.get(i).getName();
+    }
+    return resourceNames;
   }
 
   public String[][] getResourceCostAndChange(){
-
+    // TODO: Write this, returns the cost and the %change for the resources
     return new String[6][2];
   }
+  // TODO: Need to write simulation functions for selling or buying stocks
 }
