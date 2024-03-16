@@ -10,7 +10,7 @@ public class Simulation {
   public Simulation(){
     resourceInitialisation = new ResourceInitialisation("resources.txt");
     eventPicker = new EventPicker("eventList.csv", resourceInitialisation);
-
+    Automation automation = new Automation(resourceInitialisation.getResources(),this);
   }
 
   // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL
