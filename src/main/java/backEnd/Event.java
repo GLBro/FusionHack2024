@@ -19,4 +19,12 @@ public class Event {
   public void addResource(Resource resource) {
     this.resourcesAffected.add(resource);
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public ArrayList<Resource> getResourcesAffected() {
+    return resourcesAffected;
+  }
 }
