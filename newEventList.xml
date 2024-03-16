@@ -50,4 +50,66 @@
       <resource positive="true" change="10">Cloth</resource>
     </resourcesAffected>
   </event>
+  <event>
+    <name>Environmental riot</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Wood</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Wooden Housing</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Stone</resource>
+      <resource positive="false" change="10">Wood</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Stone Housing</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Wood</resource>
+      <resource positive="false" change="10">Stone</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Roads</name>
+    <resourcesAffected>
+      <resource positive="false" change="10">Stone</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Tornado</name>
+    <resourcesAffected>
+      <resource positive="false" change="10">Stone</resource>
+      <resource positive="false" change="10">Wood</resource>
+      <resource positive="false" change="10">Cloth</resource>
+      <resource positive="false" change="10">Food</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Technology</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Stone</resource>
+      <resource positive="true" change="10">Wood</resource>
+      <resource positive="true" change="10">Cloth</resource>
+      <resource positive="true" change="10">Food</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Meteor</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Stone</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Farming</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Food</resource>
+    </resourcesAffected>
+  </event>
+  <event>
+    <name>Good Season</name>
+    <resourcesAffected>
+      <resource positive="true" change="10">Food</resource>
+    </resourcesAffected>
+  </event>
 </events>
