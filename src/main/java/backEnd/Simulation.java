@@ -49,9 +49,10 @@ public class Simulation {
     return resourceNames;
   }
 
-  public String[][] getResourceCostAndChange(){
-    // TODO: Write this, returns the cost and the %change for the resources
-    return new String[6][2];
+  public double[][] getResourceCostAndChange(){
+    ArrayList<Resource> resources = resourceInitialisation.getResources();
+    double[][] costAndChange = new double[resources.size()][2];
+    return costAndChange;
   }
   // TODO: Need to write simulation functions for selling or buying stocks
 }
