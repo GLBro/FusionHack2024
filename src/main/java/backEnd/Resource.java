@@ -1,6 +1,6 @@
 package backEnd;
 public class Resource {
-  private String name;
+  private final String name;
   private double cost;
   private double lastCost;
 
@@ -17,6 +17,14 @@ public class Resource {
 
   public void setCost(double cost) {
     this.cost = cost;
+  }
+
+  public double getLastCost() {
+    return lastCost;
+  }
+
+  public String getName() {
+    return name;
   }
 
 }
