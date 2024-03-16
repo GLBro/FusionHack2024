@@ -55,7 +55,14 @@ public class Simulation {
     return costAndChange;
   }
   // TODO: Need to write simulation functions for selling or buying stocks
-  public void buy(){
-
+  public double buy(Resource resource){
+    double price = resource.getCost();
+    resource.changeCost(0.5);
+    return price;
+  }
+  public double sell(Resource resource){
+    double price = resource.getCost();
+    resource.changeCost(-0.5);
+    return price;
   }
 }
