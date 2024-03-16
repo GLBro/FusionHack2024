@@ -55,4 +55,7 @@ public class Simulation {
     return costAndChange;
   }
   // TODO: Need to write simulation functions for selling or buying stocks
+  public void buy(){
+
+  }
 }
