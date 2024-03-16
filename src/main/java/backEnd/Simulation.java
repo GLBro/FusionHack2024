@@ -30,6 +30,15 @@ public class Simulation {
     return resources;
   }
 
+  public void changeResourcePrice(){
+    int i = 0;
+    for(Resource resource: currentEvent.getResourcesAffected()){
+      resource.changeCost(currentEvent.getResourceAffectChange()[i]);
+
+      i++;
+    }
+  }
+
   public String[] getResourceNames(){
     ArrayList<Resource> resources;
     resources = resourceInitialisation.getResources();
