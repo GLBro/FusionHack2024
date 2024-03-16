@@ -11,7 +11,6 @@ public class Resource {
   }
 
   public void setLastCost() {
-
     this.lastCost = this.cost;
   }
 
