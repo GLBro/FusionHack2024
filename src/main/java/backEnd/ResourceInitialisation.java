@@ -9,6 +9,8 @@ public class ResourceInitialisation {
   private ArrayList<Resource> resources;
 
   public ResourceInitialisation(String fileName){
+    resources = new ArrayList<>();
+
     try {
       File file = new File(fileName);
       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -23,7 +25,8 @@ public class ResourceInitialisation {
 
       bufferedReader.close();
     } catch (Exception exception) {
-      System.out.println("Error");
+      System.out.println("Resource Init Error");
+      System.out.println(exception);
     }
   }
 

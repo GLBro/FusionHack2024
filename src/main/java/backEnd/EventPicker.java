@@ -17,6 +17,8 @@ public class EventPicker {
   }
 
   public ArrayList<Event> initialiseArray(String fileName) {
+    events = new ArrayList<>();
+
     try {
       File file = new File(fileName);
       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -35,8 +37,8 @@ public class EventPicker {
 
       bufferedReader.close();
     } catch (Exception exception) {
-      System.out.println(exception);
-      System.out.println("Error");
+      System.out.println("EventPicker Error");
+      exception.printStackTrace();
     }
     return events;
   };
