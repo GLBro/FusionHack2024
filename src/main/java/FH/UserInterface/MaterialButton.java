@@ -10,8 +10,10 @@ import javafx.util.Duration;
 import java.util.Objects;
 
 public class MaterialButton extends Button {
+  private String buttonName;
   public MaterialButton(String text, double price, String imageName) {
-    super(text+"\n£"+price);
+    super(text+"\n"+price+" coins\n0.0%");
+    buttonName = text;
     ImageView imageView = new ImageView();
     Image image = new Image(imageName);
     imageView.setImage(image);
@@ -33,6 +35,10 @@ public class MaterialButton extends Button {
       this.setStyle("-fx-border-color: black; -fx-background-color: lightblue; -fx-border-width: 7");
     });
     pause.play();
+  }
+
+  public void updateCosts(double newCost, double newPercentage ) {
+    this.setText(buttonName+"\n"+newCost+" coins\n"+newPercentage+"%");
   }
 
 }
