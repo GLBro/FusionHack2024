@@ -23,8 +23,8 @@ public class TradingWindow {
     materials = new HBox(50);
     leftMats = new VBox();
     leftMats.setPrefWidth(200);
-    leftMats.getChildren().add(new Label("LEFT"));
-    leftMats.getChildren().add(new Label("LEFT2"));
+    leftMats.fillWidthProperty().setValue(true);
+    leftMats.getChildren().add(new MaterialButton("Food", 5, "burger.png"));
     centreMats = new VBox();
     centreMats.setPrefWidth(200);
     centreMats.getChildren().add(new Label("CENTRE"));
