@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class EventPicker {
   private ArrayList<Event> events;
@@ -19,27 +22,30 @@ public class EventPicker {
   public ArrayList<Event> initialiseArray(String fileName) {
     events = new ArrayList<>();
 
+    XMLParser xmlParser = new XMLParser(fileName);
     try {
-      File file = new File(fileName);
-      BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+      NodeList eventNodes = xmlParser.xPath("//event");
+      for(int i = 0; i < eventNodes.getLength(); i++) {
+        Element eventElem = (Element) eventNodes.item(i);
+        String eventName = eventElem.getElementsByTagName("name").item(0).getTextContent().trim();
+        Event newEvent = new Event(eventName);
 
-      String line;
-      while((line = bufferedReader.readLine()) != null) {
-        String[] splitLine = line.split(",");
-        Event newEvent = new Event(splitLine[0]);
+        NodeList resourcesAffected = eventElem.getElementsByTagName("resourcesAffected");
+        for(int j = 0; j < resourcesAffected.getLength(); j++) {
+          Element resourceElem = (Element) resourcesAffected.item(j);
+          String resourceName = resourceElem.getTextContent().trim();
+          boolean resourcePositive = resourceElem.getAttribute("positive").trim().equals("true");
 
-        for(String resourceName : splitLine[1].split(";")) {
           newEvent.addResource(resourceInitialisation.fromName(resourceName));
         }
 
         events.add(newEvent);
       }
-
-      bufferedReader.close();
     } catch (Exception exception) {
       System.out.println("EventPicker Error");
       exception.printStackTrace();
     }
+
     return events;
   };
 

@@ -1,4 +1,5 @@
 module FH {
     requires javafx.controls;
-    exports FH;
+  requires java.xml;
+  exports FH;
 }
