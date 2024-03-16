@@ -16,8 +16,8 @@ public class Simulation {
   // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL
   public String getEventName(){
     currentEvent = eventPicker.pickEvent();
-    String eventname = currentEvent.getName();
-    return eventname;
+    return currentEvent.getName();
+
   }
 
   public String[] getEventResources(){
