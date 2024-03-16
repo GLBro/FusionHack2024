@@ -40,4 +40,7 @@ public class ResourceInitialisation {
     return null;
   }
 
+  public ArrayList<Resource> getResources() {
+    return resources;
+  }
 }
