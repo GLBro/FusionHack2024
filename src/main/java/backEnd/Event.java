@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Event {
   private String name;
   private ArrayList<Resource> resourcesAffected;
+  // TODO: Need to initialise this variable (the one below) with randomised things
   private double[] resourceAffectChange;
 
   public Event(String name) {
