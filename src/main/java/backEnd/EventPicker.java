@@ -44,7 +44,8 @@ public class EventPicker {
   };
 
   public Event pickEvent(){
-    int i = rand.nextInt(events.size() -1);
+    int ub = events.size();
+    int i = rand.nextInt(ub);
     return events.get(i);
   }
 
