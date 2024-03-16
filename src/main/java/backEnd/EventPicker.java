@@ -12,4 +12,9 @@ public class EventPicker {
 
     return events;
   };
+
+  public Event pickEvent(){
+
+    return events.get(0);
+  }
 }
