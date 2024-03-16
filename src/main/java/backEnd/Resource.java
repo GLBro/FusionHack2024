@@ -7,7 +7,7 @@ public class Resource {
 
   public Resource(String name){
     this.name = name;
-    this.cost = 0.00;
+    this.cost = 25.00;
   }
 
   public void setLastCost() {
