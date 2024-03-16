@@ -10,7 +10,7 @@ import javafx.util.Duration;
 import java.util.Objects;
 
 public class MaterialButton extends Button {
-  private String buttonName;
+  private final String buttonName;
   public MaterialButton(String text, double price, String imageName) {
     super(text+"\n"+price+" coins\n0.0%");
     buttonName = text;

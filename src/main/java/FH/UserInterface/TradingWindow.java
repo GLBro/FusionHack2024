@@ -16,6 +16,14 @@ public class TradingWindow {
   private final VBox centreMats;
   private final VBox rightMats;
   private final ScrollPane scroller;
+  private final VBox layout;
+  private final HBox userInfo;
+  private final ScrollPane news;
+  private final VBox eventStorer;
+  private final String username = "Guest";
+  private double budget = 10000;
+  private final Label userLabel;
+  private final Label budgetLabel;
 
   public TradingWindow() {
     var pane = new BorderPane();
@@ -43,7 +51,29 @@ public class TradingWindow {
     scroller.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
     scroller.setContent(materials);
     scroller.fitToWidthProperty().setValue(true);
-    pane.setBottom(scroller);
+
+    news = new ScrollPane();
+    news.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+    eventStorer = new VBox();
+    eventStorer.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
+    eventStorer.setPrefHeight(200);
+    news.setContent(eventStorer);
+    news.fitToWidthProperty().setValue(true);
+
+    userInfo = new HBox(450);
+    userInfo.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+    userInfo.setPrefHeight(100);
+    userLabel = new Label("User: "+username);
+    budgetLabel = new Label("Budget: "+budget);
+    userInfo.getChildren().add(userLabel);
+    userInfo.getChildren().add(budgetLabel);
+
+    layout = new VBox();
+    layout.getChildren().add(userInfo);
+    layout.getChildren().add(news);
+    layout.getChildren().add(scroller);
+
+    pane.setCenter(layout);
   }
 
   public Scene getScene() {
