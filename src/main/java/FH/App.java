@@ -1,6 +1,6 @@
 package FH;
 
-import FH.UserInterface.TradingWindow;
+import FH.UserInterface.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;

@@ -5,8 +5,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
 
 public class TradingWindow {
 
@@ -32,15 +35,10 @@ public class TradingWindow {
     leftMats = new VBox();
     leftMats.setPrefWidth(200);
     leftMats.fillWidthProperty().setValue(true);
-    leftMats.getChildren().add(new MaterialButton("Food", 5, "burger.png"));
     centreMats = new VBox();
     centreMats.setPrefWidth(200);
-    centreMats.getChildren().add(new Label("CENTRE"));
-    centreMats.getChildren().add(new Label("CENTRE2"));
     rightMats = new VBox();
     rightMats.setPrefWidth(200);
-    rightMats.getChildren().add(new Label("RIGHT"));
-    rightMats.getChildren().add(new Label("RIGHT2"));
     //materials.setAlignment(Pos.BOTTOM_CENTER);
     materials.getChildren().add(leftMats);
     materials.getChildren().add(centreMats);
@@ -75,20 +73,71 @@ public class TradingWindow {
 
     pane.setCenter(layout);
 
-    String[] test1 = new String[10];
-    for (int i=0; i<10; i++) {
-      test1[i] = "Wood";
-    }
-    String[] test2 = new String[10];
-    for (int i=0; i<10; i++) {
-      test2[i] = "5";
-    }
-    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
-    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
-    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
+    addNewResource("Food", 5);
+    addNewResource("Stone", 10);
+    addNewResource("Wood", 7);
+    addNewResource("Cloth", 9);
+
+    ArrayList<String> resources = new ArrayList<String>();
+    resources.add("Wood");
+    resources.add("Stone");
+    resources.add("Cloth");
+    resources.add("Food");
+    ArrayList<Double> changes = new ArrayList<Double>();
+    changes.add(5.0);
+    changes.add(17.0);
+    changes.add(12.0);
+    changes.add(8.0);
+    addNewEvent("Fire",  resources, changes);
+    addNewEvent("Drought",  resources, changes);
+    addNewEvent("War",  resources, changes);
+    addNewEvent("Tsunami",  resources, changes);
+    addNewEvent("Eruption",  resources, changes);
+    addNewEvent("PopulationIncrease",  resources, changes);
+    addNewEvent("PopulationDecrease",  resources, changes);
+    addNewEvent("Disease",  resources, changes);
+    addNewEvent("EnvironmentalRiot",  resources, changes);
+    addNewEvent("WoodHousing",  resources, changes);
+    addNewEvent("StoneHousing",  resources, changes);
+    addNewEvent("Roads",  resources, changes);
+    addNewEvent("Tornado",  resources, changes);
+    addNewEvent("Technology",  resources, changes);
+    addNewEvent("Meteor",  resources, changes);
+    addNewEvent("Farming",  resources, changes);
+    addNewEvent("GoodSeason",  resources, changes);
   }
 
   public Scene getScene() {
     return scene;
+  }
+
+  public void addNewResource(String resource, double cost) {
+    String imagePath = "burger.png";
+    if (resource.equals("Food")) {
+      imagePath = "burger.png";
+    } else if (resource.equals("Stone")) {
+      imagePath = "stone.png";
+    } else if (resource.equals("Wood")) {
+      imagePath = "tree.png";
+    } else if (resource.equals("Cloth")) {
+      imagePath = "cloth.png";
+    }
+    int leftSize = leftMats.getChildren().size();
+    int centreSize = centreMats.getChildren().size();
+    int rightSize = rightMats.getChildren().size();
+    if (leftSize==centreSize && centreSize==rightSize) {
+      leftMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
+      leftMats.getChildren().add(new SellButton(resource, cost, imagePath));
+    } else if (leftSize==centreSize && rightSize==centreSize-2) {
+      rightMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
+      rightMats.getChildren().add(new SellButton(resource, cost, imagePath));
+    } else {
+      centreMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
+      centreMats.getChildren().add(new SellButton(resource, cost, imagePath));
+    }
+  }
+
+  public void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes) {
+    eventStorer.getChildren().add(new EventBar(eventType, resources, changes));
   }
 }
