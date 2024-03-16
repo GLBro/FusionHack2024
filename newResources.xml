@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <resource>
-    <name>Resource1</name>
+    <name>Wood</name>
+  </resource>
+  <resource>
+    <name>Stone</name>
+  </resource>
+  <resource>
+    <name>Food</name>
+  </resource>
+  <resource>
+    <name>Cloth</name>
   </resource>
 </resources>

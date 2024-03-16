@@ -34,9 +34,12 @@ public class EventPicker {
         for(int j = 0; j < resourcesAffected.getLength(); j++) {
           Element resourceElem = (Element) resourcesAffected.item(j);
           String resourceName = resourceElem.getTextContent().trim();
-          boolean resourcePositive = resourceElem.getAttribute("positive").trim().equals("true");
 
-          newEvent.addResource(resourceInitialisation.fromName(resourceName));
+          boolean resourcePositive = resourceElem.getAttribute("positive").trim().equals("true");
+          int resourceChange = Integer.parseInt(resourceElem.getAttribute("change").trim());
+          resourceChange *= (resourcePositive ? 1 : -1);
+
+          newEvent.addResource(resourceInitialisation.fromName(resourceName), resourceChange);
         }
 
         events.add(newEvent);

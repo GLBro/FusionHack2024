@@ -18,7 +18,7 @@ public class Event {
     this.resourcesAffected.addAll(resourcesAffected);
   }
 
-  public void addResource(Resource resource) {
+  public void addResource(Resource resource, double change) {
     this.resourcesAffected.add(resource);
   }
 
