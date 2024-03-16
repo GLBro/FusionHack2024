@@ -29,8 +29,8 @@ public class Resource {
   }
 
   public void changeCost(double change){
-    this.percentChange += change;
-    this.cost *= change;
+    this.cost *= (1+change/10);
+    this.percentChange = (this.cost/this.lastCost)*100;
   }
 
 }
