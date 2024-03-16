@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class ResourceInitilisation {
+public class ResourceInitialisation {
   private ArrayList<Resource> resources;
 
-  public ResourceInitilisation(String fileName){
+  public ResourceInitialisation(String fileName){
     try {
       File file = new File(fileName);
       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));

@@ -8,9 +8,12 @@ import java.util.Random;
 
 public class EventPicker {
   private ArrayList<Event> events;
+  private ResourceInitialisation resourceInitialisation;
   private Random rand = new Random();
-  public EventPicker(String file){
-    initialiseArray(file);
+
+  public EventPicker(String fileName, ResourceInitialisation resourceInitialisation){
+    this.resourceInitialisation = resourceInitialisation;
+    initialiseArray(fileName);
   }
 
   public ArrayList<Event> initialiseArray(String fileName) {
@@ -21,20 +24,25 @@ public class EventPicker {
       String line;
       while((line = bufferedReader.readLine()) != null) {
         String[] splitLine = line.split(",");
-        events.add(new Event(
-            splitLine[0]
-        ));
+        Event newEvent = new Event(splitLine[0]);
+
+        for(String resourceName : splitLine[1].split(";")) {
+          newEvent.addResource(resourceInitialisation.fromName(resourceName));
+        }
+
+        events.add(newEvent);
       }
 
       bufferedReader.close();
     } catch (Exception exception) {
+      System.out.println(exception);
       System.out.println("Error");
     }
     return events;
   };
 
   public Event pickEvent(){
-    int i = rand.nextInt(0,events.size() -1);
+    int i = rand.nextInt(events.size() -1);
     return events.get(i);
   }
 
