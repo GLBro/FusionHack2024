@@ -54,7 +54,7 @@ public class Simulation {
     double[][] costAndChange = new double[resources.size()][2];
     return costAndChange;
   }
-  // TODO: Need to write simulation functions for selling or buying stocks
+
   public double buy(Resource resource){
     double price = resource.getCost();
     resource.changeCost(0.5);
