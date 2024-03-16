@@ -74,6 +74,18 @@ public class TradingWindow {
     layout.getChildren().add(scroller);
 
     pane.setCenter(layout);
+
+    String[] test1 = new String[10];
+    for (int i=0; i<10; i++) {
+      test1[i] = "Wood";
+    }
+    String[] test2 = new String[10];
+    for (int i=0; i<10; i++) {
+      test2[i] = "5";
+    }
+    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
+    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
+    eventStorer.getChildren().add(new EventBar("Fire", test1, test2));
   }
 
   public Scene getScene() {
