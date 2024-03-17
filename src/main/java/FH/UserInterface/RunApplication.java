@@ -8,9 +8,8 @@ public class RunApplication implements Runnable{
   @Override
   public synchronized void run() {
     TradingWindow.sim.automation.hundredBuy();
-    PauseTransition pause = new PauseTransition(Duration.seconds(10));
+    PauseTransition pause = new PauseTransition(Duration.seconds(5));
     pause.setOnFinished(e -> {
-      System.out.println("LOOOL");
       run();
     });
     pause.play();

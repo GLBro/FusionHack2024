@@ -74,7 +74,7 @@ public class EventBar extends HBox{
     }
     labelBox.getChildren().add(description);
     for (int i=0; i< resources.size(); i++) {
-      labelBox.getChildren().add(new Label(resources.get(i)+" has changed by "+changes.get(i)+"%"));
+      labelBox.getChildren().add(new Label(resources.get(i)+" has changed by "+round(changes.get(i), 2)+"%"));
     }
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(50);
@@ -82,4 +82,13 @@ public class EventBar extends HBox{
     this.getChildren().add(imageView);
     this.getChildren().add(labelBox);
   }
+  public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    long factor = (long) Math.pow(10, places);
+    value = value * factor;
+    long tmp = Math.round(value);
+    return (double) tmp / factor;
+  }
+
 }

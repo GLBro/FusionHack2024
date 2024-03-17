@@ -25,9 +25,10 @@ public class Resource {
     return name;
   }
 
-  public void changeCost(double change){
+  public double changeCost(double change){
     this.cost *= (1+change/100);
     this.percentChange = (this.cost/this.lastCost-1)*100;
+    return change;
   }
   public double getCost(){
     return this.cost;

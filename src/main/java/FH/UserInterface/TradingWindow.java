@@ -76,7 +76,7 @@ public class TradingWindow {
     news.fitToWidthProperty().setValue(true);
 
     userInfo = new HBox(450);
-    userInfo.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+    userInfo.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
     userInfo.setPrefHeight(100);
     userLabel = new Label("User: "+username);
     budgetLabel = new Label("Budget: "+budget);
@@ -128,7 +128,7 @@ public class TradingWindow {
     eventThread.start();
     Thread autoThread = new Thread(new RunApplication());
     autoThread.start();
-    Thread buttonThread = new Thread(new RunButton());
+    Thread buttonThread = new Thread(new RunButton(sim));
     PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
     pauseTransition.setOnFinished(e -> buttonThread.start());
     pauseTransition.play();
@@ -205,15 +205,11 @@ public class TradingWindow {
     }
     double[][] costAndChange = sim.getResourceCostAndChange();
     ArrayList<Double> cost = new ArrayList<>();
-    ArrayList<Double> change = new ArrayList<>();
+    ArrayList<Double> change = sim.getAffectedEventPercentage();
     for (double[] d : costAndChange) {
       if (!(d[1] == (0.0))) {
         cost.add(round(d[0], 2));
-        change.add(round(d[1], 2));
       }
-    }
-    for (double d : change) {
-      System.out.println(d);
     }
     addNewEvent(event, resources, change, cost);
   }

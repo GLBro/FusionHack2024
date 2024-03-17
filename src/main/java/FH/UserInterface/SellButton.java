@@ -28,7 +28,7 @@ public class SellButton extends Button {
     this.setOnAction(e -> {
       sim.sell(sim.getResource(text));
       tw.setBudget(sim.getBudget());
-      this.setText("Sell "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"%");
+      this.setText("Sell "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"% Amount "+sim.getAmount(text));
     });
   }
 

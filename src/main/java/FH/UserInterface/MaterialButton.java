@@ -30,7 +30,7 @@ public class MaterialButton extends Button {
     this.setOnAction(e -> {
       sim.buy(sim.getResource(text));
       tw.setBudget(sim.getBudget());
-      this.setText("Buy "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"%");
+      this.setText("Buy "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"% Amount "+sim.getAmount(text));
     });
   }
 

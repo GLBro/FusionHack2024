@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d66eadaa-dbee-4ccc-a550-3ab2c667022b" name="Changes" comment="Added threads that handle events and stock exchange">
+    <list default="true" id="d66eadaa-dbee-4ccc-a550-3ab2c667022b" name="Changes" comment="Implemented budget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/EventBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/EventBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/MaterialButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/MaterialButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/RunEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/SellButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/SellButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FH/UserInterface/TradingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FH/UserInterface/TradingWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backEnd/EventPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backEnd/EventPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backEnd/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backEnd/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backEnd/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backEnd/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FH/UserInterface/EventBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FH/UserInterface/EventBar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/FH/UserInterface/MaterialButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FH/UserInterface/MaterialButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/FH/UserInterface/SellButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FH/UserInterface/SellButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/FH/UserInterface/TradingWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FH/UserInterface/TradingWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/backEnd/EventPicker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/backEnd/EventPicker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/backEnd/Resource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/backEnd/Resource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backEnd/Simulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/backEnd/Simulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -298,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710661579780</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Implemented budget">
+      <option name="closed" value="true" />
+      <created>1710663258678</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710663258678</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +358,8 @@
     <MESSAGE value="idk" />
     <MESSAGE value="Added buying and selling functionalities" />
     <MESSAGE value="Added threads that handle events and stock exchange" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added threads that handle events and stock exchange" />
+    <MESSAGE value="Implemented budget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented budget" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,6 +368,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/backEnd/Test.java</url>
           <line>7</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/backEnd/EventPicker.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

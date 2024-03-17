@@ -14,6 +14,7 @@ public class EventPicker {
   private ResourceInitialisation resourceInitialisation;
   private Random rand = new Random();
 
+  private ArrayList<Double> resourceAffectChange;
   public EventPicker(String fileName, ResourceInitialisation resourceInitialisation){
     this.resourceInitialisation = resourceInitialisation;
     initialiseArray(fileName);
@@ -58,15 +59,17 @@ public class EventPicker {
 
     Event event = events.get(i);
     ArrayList<Resource> resources = event.getResourcesAffected();
-    ArrayList<Double> resourceAffectChange = event.getResourceAffectChange();
+    resourceAffectChange = event.getResourceAffectChange();
     for(int j = 0; j < resources.size(); j++) {
       Resource resourceAffected = resources.get(j);
       double affectChange = resourceAffectChange.get(j);
-
-      resourceAffected.changeCost(affectChange * 0.5 + (Math.random() * affectChange));
+      resourceAffectChange.set(j,resourceAffected.changeCost(affectChange * 0.5 + (Math.random() * affectChange)));
+      System.out.println(resourceAffectChange.get(j));
     }
 
     return event;
   }
-
+  public ArrayList<Double> geResourceAffectChange(){
+    return resourceAffectChange;
+  }
 }

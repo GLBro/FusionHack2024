@@ -68,9 +68,28 @@ public class Simulation {
     return costAndChange;
   }
 
+  public ArrayList<Double> getAffectedEventPercentage() {
+    return eventPicker.geResourceAffectChange();
+  }
+
+  public int getAmount(String name) {
+    if (name.equals("Wood")) {
+      return wood;
+    } else if (name.equals("Stone")) {
+      return stone;
+    } else if (name.equals("Food")) {
+      return food;
+    } else {
+      return cloth;
+    }
+  }
+
   public double buy(Resource resource){
     String name = resource.getName();
     double price = resource.getCost();
+    if ((double)budget-price < 0) {
+      return price;
+    }
     resource.changeCost(0.5);
     if (name.equals("Wood")){
       wood++;
