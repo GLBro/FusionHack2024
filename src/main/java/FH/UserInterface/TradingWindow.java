@@ -1,7 +1,9 @@
 package FH.UserInterface;
 
+import backEnd.Automation;
 import backEnd.EventPicker;
 import backEnd.Simulation;
+import javafx.animation.PauseTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.net.URL;
@@ -31,15 +34,15 @@ public class TradingWindow {
   private final ScrollPane scroller;
   private final VBox layout;
   private final HBox userInfo;
-  private final ScrollPane news;
-  private final VBox eventStorer;
+  public static final ScrollPane news = new ScrollPane();
+  private static final VBox eventStorer = new VBox();
   private final String username = "Guest";
   private double budget;
   private final Label userLabel;
   private final Label budgetLabel;
-  private ArrayList<MaterialButton> mButtons = new ArrayList<MaterialButton>();
-  private ArrayList<SellButton> sButtons = new ArrayList<SellButton>();
-  private Simulation sim = new Simulation();
+  public static ArrayList<MaterialButton> mButtons = new ArrayList<MaterialButton>();
+  public static ArrayList<SellButton> sButtons = new ArrayList<SellButton>();
+  public static Simulation sim = new Simulation();
 
   public TradingWindow() {
     budget = sim.getBudget();
@@ -64,9 +67,9 @@ public class TradingWindow {
     scroller.setContent(materials);
     scroller.fitToWidthProperty().setValue(true);
 
-    news = new ScrollPane();
+    //news = new ScrollPane();
     news.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-    eventStorer = new VBox();
+    //eventStorer = new VBox();
     eventStorer.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
     eventStorer.setPrefHeight(200);
     news.setContent(eventStorer);
@@ -121,7 +124,14 @@ public class TradingWindow {
     addNewEvent("Farming",  resources, changes);
     addNewEvent("GoodSeason",  resources, changes);
     */
-    cycleEvents();
+    Thread eventThread = new Thread(new RunEvents());
+    eventThread.start();
+    Thread autoThread = new Thread(new RunApplication());
+    autoThread.start();
+    Thread buttonThread = new Thread(new RunButton());
+    PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+    pauseTransition.setOnFinished(e -> buttonThread.start());
+    pauseTransition.play();
   }
 
   public Scene getScene() {
@@ -158,7 +168,7 @@ public class TradingWindow {
     }
   }
 
-  public void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes, ArrayList<Double> costs) {
+  public static void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes, ArrayList<Double> costs) {
     eventStorer.getChildren().add(new EventBar(eventType, resources, changes));
     int counter = 0;
     for (String r : resources) {
@@ -176,7 +186,7 @@ public class TradingWindow {
     }
   }
 
-  public void cycleEvents() {
+  public static void cycleEvents() {
     String event = sim.getEventName();
     System.out.println(event);
     ArrayList<String> resources = sim.getEventResources();
@@ -206,7 +216,6 @@ public class TradingWindow {
       System.out.println(d);
     }
     addNewEvent(event, resources, change, cost);
-
   }
   public static double round(double value, int places) {
     if (places < 0) throw new IllegalArgumentException();

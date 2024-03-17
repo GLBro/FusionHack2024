@@ -14,11 +14,12 @@ public class Simulation {
   private int stone = 0;
   private int cloth = 0;
   private double budget = 1000.00;
+  public Automation automation;
 
   public Simulation(){
     resourceInitialisation = new ResourceInitialisation("newResources.xml");
     eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
-    Automation automation = new Automation(resourceInitialisation.getResources(),this);
+    automation = new Automation(resourceInitialisation.getResources(),this);
   }
 
   // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL

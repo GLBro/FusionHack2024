@@ -5,7 +5,7 @@ import java.util.Random;
 public class Automation {
     private ArrayList<Resource> resources;
     private ResourceInitialisation init;
-    private Random rand;
+    private Random rand = new Random();
     private Simulation sim;
     public Automation(ArrayList<Resource> list,Simulation sim){
         this.sim = sim;
