@@ -227,6 +227,7 @@ public class TradingWindow {
   }
 
   public void setBudget(double budget) {
-    this.budget = budget;
+    this.budget = round(budget, 2);
+    budgetLabel.setText("Budget: "+this.budget);
   }
 }

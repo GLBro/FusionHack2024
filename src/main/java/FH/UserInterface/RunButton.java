@@ -6,7 +6,7 @@ import javafx.util.Duration;
 
 public class RunButton implements Runnable{
   @Override
-  public void run() {
+  public synchronized void run() {
     for (MaterialButton m : TradingWindow.mButtons) {
       String[] a = m.getText().split("\n");
       String b = a[0];

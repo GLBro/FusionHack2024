@@ -6,7 +6,7 @@ import javafx.util.Duration;
 public class RunApplication implements Runnable{
 
   @Override
-  public void run() {
+  public synchronized void run() {
     TradingWindow.sim.automation.hundredBuy();
     PauseTransition pause = new PauseTransition(Duration.seconds(10));
     pause.setOnFinished(e -> {
