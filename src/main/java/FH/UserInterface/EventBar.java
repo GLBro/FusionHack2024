@@ -29,16 +29,16 @@ public class EventBar extends HBox{
     } else if (name.equals("Tsunami")) {
       image = new Image("wave.png");
       description = new Label("A tsunami has hit!");
-    } else if (name.equals("Eruption")) {
+    } else if (name.equals("Volcanic Eruption")) {
       image = new Image("volcano.png");
       description = new Label("A volcano has erupted!");
-    } else if (name.equals("PopulationIncrease")) {
+    } else if (name.equals("Population Increase")) {
       image = new Image("person.png");
       description = new Label("A population boom has occurred, prepare for the next generation!");
-    } else if (name.equals("PopulationDecrease")) {
+    } else if (name.equals("Population Decrease")) {
       image = new Image("person.png");
       description = new Label("The population is declining at a rapid rate, everyone is dying!");
-    } else if (name.equals("EnvironmentalRiot")) {
+    } else if (name.equals("Environmental riot")) {
       image = new Image("person.png");
       description = new Label("Some vegans are complaining about the environment and causing a ruckus!");
     } else if (name.equals("Disease")) {
@@ -53,10 +53,10 @@ public class EventBar extends HBox{
     } else if (name.equals("Technology")) {
       image = new Image("person.png");
       description = new Label("Large technological advances have been made, NERDS!");
-    } else if (name.equals("WoodHousing")) {
+    } else if (name.equals("Wooden Housing")) {
       image = new Image("hammer.png");
       description = new Label("Some wooden houses have been built, fair enough in this economy!");
-    } else if (name.equals("StoneHousing")) {
+    } else if (name.equals("Stone Housing")) {
       image = new Image("hammer.png");
       description = new Label("Some stone houses have been built, the economy is recovering!");
     } else if (name.equals("Meteor")) {
@@ -65,7 +65,7 @@ public class EventBar extends HBox{
     } else if (name.equals("Farming")) {
       image = new Image("sapling.png");
       description = new Label("Lots of farms have been built, hope you like the countryside!");
-    } else if (name.equals("GoodSeason")) {
+    } else if (name.equals("Good Season")) {
       image = new Image("sapling.png");
       description = new Label("Farming has been very successful this harvest!");
     } else {

@@ -30,13 +30,13 @@ public class EventPicker {
         String eventName = eventElem.getElementsByTagName("name").item(0).getTextContent().trim();
         Event newEvent = new Event(eventName);
 
-        NodeList resourcesAffected = eventElem.getElementsByTagName("resourcesAffected");
+        NodeList resourcesAffected = eventElem.getElementsByTagName("resource");
         for(int j = 0; j < resourcesAffected.getLength(); j++) {
           Element resourceElem = (Element) resourcesAffected.item(j);
-          String resourceName = resourceElem.getTextContent().trim();
+          String resourceName = resourceElem.getElementsByTagName("name").item(0).getTextContent().trim();
+          boolean resourcePositive = resourceElem.getElementsByTagName("positive").item(0).getTextContent().trim().equals("true");
+          int resourceChange = Integer.parseInt(resourceElem.getElementsByTagName("change").item(0).getTextContent().trim());
 
-          boolean resourcePositive = resourceElem.getAttribute("positive").trim().equals("true");
-          int resourceChange = Integer.parseInt(resourceElem.getAttribute("change").trim());
           resourceChange *= (resourcePositive ? 1 : -1);
 
           newEvent.addResource(resourceInitialisation.fromName(resourceName), resourceChange);
@@ -55,7 +55,18 @@ public class EventPicker {
   public Event pickEvent(){
     int ub = events.size();
     int i = rand.nextInt(ub);
-    return events.get(i);
+
+    Event event = events.get(i);
+    ArrayList<Resource> resources = event.getResourcesAffected();
+    ArrayList<Double> resourceAffectChange = event.getResourceAffectChange();
+    for(int j = 0; j < resources.size(); j++) {
+      Resource resourceAffected = resources.get(j);
+      double affectChange = resourceAffectChange.get(j);
+
+      resourceAffected.changeCost(affectChange * 0.5 + (Math.random() * affectChange));
+    }
+
+    return event;
   }
 
 }

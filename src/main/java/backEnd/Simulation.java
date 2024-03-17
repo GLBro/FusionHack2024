@@ -6,10 +6,14 @@ public class Simulation {
   private EventPicker eventPicker;
   private ResourceInitialisation resourceInitialisation;
   private Event currentEvent;
+  private int wood = 0;
+  private int food = 0;
+  private int stone = 0;
+  private int cloth = 0;
 
   public Simulation(){
-    resourceInitialisation = new ResourceInitialisation("resources.txt");
-    eventPicker = new EventPicker("eventList.csv", resourceInitialisation);
+    resourceInitialisation = new ResourceInitialisation("newResources.xml");
+    eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
     Automation automation = new Automation(resourceInitialisation.getResources(),this);
   }
 
@@ -20,20 +24,20 @@ public class Simulation {
 
   }
 
-  public String[] getEventResources(){
-    String[] resources = new String[currentEvent.getResourcesAffected().size()];
-
-    for (int i=0; i<currentEvent.getResourcesAffected().size();i++){
-      resources[i] = currentEvent.getResourcesAffected().get(i).getName();
+  public ArrayList<String> getEventResources(){
+    ArrayList<String> eventResources = new ArrayList<>();
+    ArrayList<Resource> resourcesAffected = currentEvent.getResourcesAffected();
+    for(Resource resource : resourcesAffected) {
+      eventResources.add(resource.getName());
     }
 
-    return resources;
+    return eventResources;
   }
 
   public void changeResourcePrice(){
     int i = 0;
     for(Resource resource: currentEvent.getResourcesAffected()){
-      resource.changeCost(currentEvent.getResourceAffectChange()[i]);
+      resource.changeCost(currentEvent.getResourceAffectChange().get(i));
 
       i++;
     }
@@ -52,17 +56,90 @@ public class Simulation {
   public double[][] getResourceCostAndChange(){
     ArrayList<Resource> resources = resourceInitialisation.getResources();
     double[][] costAndChange = new double[resources.size()][2];
+    for (int i =0;i<resources.size();i++){
+      costAndChange[i][0] = resources.get(i).getCost();
+      costAndChange[i][1] = resources.get(i).getPercentChange();
+    }
     return costAndChange;
   }
 
   public double buy(Resource resource){
+    String name = resource.getName();
+    double price = resource.getCost();
+    resource.changeCost(0.5);
+    if (name.equals("Wood")){
+      wood++;
+      System.out.println(wood);
+    } else if (name.equals("Food")) {
+      food++;
+      System.out.println(food);
+    }
+    else if (name.equals("Stone")) {
+      stone++;
+      System.out.println(stone);
+    }
+    else if (name.equals("Cloth")) {
+      cloth++;
+      System.out.println(cloth);
+    }
+    return price;
+  }
+  public double sell(Resource resource){
+    String name = resource.getName();
+    int count = 0;
+    if (name.equals("Wood")){
+      count = wood;
+      System.out.println(count);
+    } else if (name.equals("Food")) {
+      count = food;
+      System.out.println(count);
+    }
+    else if (name.equals("Stone")) {
+      count = stone;
+      System.out.println(count);
+    }
+    else if (name.equals("Cloth")) {
+      count = cloth;
+      System.out.println(count);
+    }
+    if (count>=1){
+      double price = resource.getCost();
+      resource.changeCost(-0.5);
+      if (name.equals("Wood")){
+        wood--;
+        System.out.println(wood);
+      } else if (name.equals("Food")) {
+        food--;
+        System.out.println(food);
+
+      }
+      else if (name.equals("Stone")) {
+        stone--;
+        System.out.println(stone);
+      }
+      else if (name.equals("Cloth")) {
+        cloth--;
+        System.out.println(cloth);
+      }
+      return price;
+    }
+    else{
+      return 0;
+    }
+  }
+
+  public Resource getResource(String name) {
+    return resourceInitialisation.fromName(name);
+  }
+  public double autoBuy(Resource resource){
     double price = resource.getCost();
     resource.changeCost(0.5);
     return price;
   }
-  public double sell(Resource resource){
+  public double autoSell(Resource resource){
     double price = resource.getCost();
     resource.changeCost(-0.5);
     return price;
   }
+
 }
