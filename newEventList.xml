@@ -14,7 +14,7 @@
     <name>Drought</name>
     <resourcesAffected>
       <resource>
-        <name>Dood</name>
+        <name>Food</name>
         <positive>false</positive>
         <change>10</change>
       </resource>
