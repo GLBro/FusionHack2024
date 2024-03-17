@@ -6,6 +6,10 @@ public class Simulation {
   private EventPicker eventPicker;
   private ResourceInitialisation resourceInitialisation;
   private Event currentEvent;
+  private int wood = 0;
+  private int food = 0;
+  private int stone = 0;
+  private int cloth = 0;
 
   public Simulation(){
     resourceInitialisation = new ResourceInitialisation("newResources.xml");
@@ -60,17 +64,82 @@ public class Simulation {
   }
 
   public double buy(Resource resource){
+    String name = resource.getName();
     double price = resource.getCost();
     resource.changeCost(0.5);
+    if (name.equals("Wood")){
+      wood++;
+      System.out.println(wood);
+    } else if (name.equals("Food")) {
+      food++;
+      System.out.println(food);
+    }
+    else if (name.equals("Stone")) {
+      stone++;
+      System.out.println(stone);
+    }
+    else if (name.equals("Cloth")) {
+      cloth++;
+      System.out.println(cloth);
+    }
     return price;
   }
   public double sell(Resource resource){
-    double price = resource.getCost();
-    resource.changeCost(-0.5);
-    return price;
+    String name = resource.getName();
+    int count = 0;
+    if (name.equals("Wood")){
+      count = wood;
+      System.out.println(count);
+    } else if (name.equals("Food")) {
+      count = food;
+      System.out.println(count);
+    }
+    else if (name.equals("Stone")) {
+      count = stone;
+      System.out.println(count);
+    }
+    else if (name.equals("Cloth")) {
+      count = cloth;
+      System.out.println(count);
+    }
+    if (count>=1){
+      double price = resource.getCost();
+      resource.changeCost(-0.5);
+      if (name.equals("Wood")){
+        wood--;
+        System.out.println(wood);
+      } else if (name.equals("Food")) {
+        food--;
+        System.out.println(food);
+
+      }
+      else if (name.equals("Stone")) {
+        stone--;
+        System.out.println(stone);
+      }
+      else if (name.equals("Cloth")) {
+        cloth--;
+        System.out.println(cloth);
+      }
+      return price;
+    }
+    else{
+      return 0;
+    }
   }
 
   public Resource getResource(String name) {
     return resourceInitialisation.fromName(name);
   }
+  public double autoBuy(Resource resource){
+    double price = resource.getCost();
+    resource.changeCost(0.5);
+    return price;
+  }
+  public double autoSell(Resource resource){
+    double price = resource.getCost();
+    resource.changeCost(-0.5);
+    return price;
+  }
+
 }

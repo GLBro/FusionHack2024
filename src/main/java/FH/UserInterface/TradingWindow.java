@@ -177,6 +177,7 @@ public class TradingWindow {
 
   public void cycleEvents() {
     String event = sim.getEventName();
+    System.out.println(event);
     ArrayList<String> resources = sim.getEventResources();
     ArrayList<String> orderedResources = new ArrayList<String>();
     if (resources.contains("Wood")) {

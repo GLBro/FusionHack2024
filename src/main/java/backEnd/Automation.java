@@ -21,10 +21,10 @@ public class Automation {
             int decision = rand.nextInt(2);
             Resource resource = resources.get(choose);
             if (decision == 0){
-                sim.buy(resource);
+                sim.autoBuy(resource);
             }
             else{
-                sim.sell(resource);
+                sim.autoSell(resource);
             }
         }
 
