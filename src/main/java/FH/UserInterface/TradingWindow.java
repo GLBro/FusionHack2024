@@ -155,10 +155,12 @@ public class TradingWindow {
   public void cycleEvents() {
     Simulation sim = new Simulation();
     String event = sim.getEventName();
-    System.out.println(event);
     ArrayList<String> resources = sim.getEventResources();
-    for (String resource : resources) {
-      System.out.println(resource);
+    double[][] costAndChange = sim.getResourceCostAndChange();
+    for (int i=0; i<costAndChange.length; i++) {
+      for (int j=0; j<costAndChange[i].length; j++) {
+        System.out.println(costAndChange[i][j]);
+      }
     }
   }
 

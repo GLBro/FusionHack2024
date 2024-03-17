@@ -36,4 +36,7 @@ public class Resource {
     return this.cost;
   }
 
+  public double getPercentChange() {
+    return percentChange;
+  }
 }

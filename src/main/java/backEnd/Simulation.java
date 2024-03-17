@@ -52,6 +52,10 @@ public class Simulation {
   public double[][] getResourceCostAndChange(){
     ArrayList<Resource> resources = resourceInitialisation.getResources();
     double[][] costAndChange = new double[resources.size()][2];
+    for (int i =0;i<resources.size();i++){
+      costAndChange[i][0] = resources.get(i).getCost();
+      costAndChange[i][1] = resources.get(i).getPercentChange();
+    }
     return costAndChange;
   }
 
