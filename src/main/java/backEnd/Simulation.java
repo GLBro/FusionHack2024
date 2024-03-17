@@ -20,14 +20,14 @@ public class Simulation {
 
   }
 
-  public String[] getEventResources(){
-    String[] resources = new String[currentEvent.getResourcesAffected().size()];
-
-    for (int i=0; i<currentEvent.getResourcesAffected().size();i++){
-      resources[i] = currentEvent.getResourcesAffected().get(i).getName();
+  public ArrayList<String> getEventResources(){
+    ArrayList<String> eventResources = new ArrayList<>();
+    ArrayList<Resource> resourcesAffected = currentEvent.getResourcesAffected();
+    for(Resource resource : resourcesAffected) {
+      eventResources.add(resource.getName());
     }
 
-    return resources;
+    return eventResources;
   }
 
   public void changeResourcePrice(){
