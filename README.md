@@ -1,5 +1,5 @@
-<p align="center"># ResourceStonks 
-## By CTS </p>
+<p align="center">ResourceStonks </p>
+<p align="center">By CTS </p>
 
 ### Our Topics 
 We decided to fuse:
