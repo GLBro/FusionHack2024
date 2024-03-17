@@ -1,5 +1,7 @@
 package FH.UserInterface;
 
+import backEnd.EventPicker;
+import backEnd.Simulation;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,9 +10,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TradingWindow {
 
@@ -107,6 +115,7 @@ public class TradingWindow {
     addNewEvent("Farming",  resources, changes);
     addNewEvent("GoodSeason",  resources, changes);
 
+    cycleEvents();
   }
 
   public Scene getScene() {
@@ -142,4 +151,16 @@ public class TradingWindow {
   public void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes) {
     eventStorer.getChildren().add(new EventBar(eventType, resources, changes));
   }
+
+  public void cycleEvents() {
+    Simulation sim = new Simulation();
+    String event = sim.getEventName();
+    System.out.println(event);
+    ArrayList<String> resources = sim.getEventResources();
+    for (String resource : resources) {
+      System.out.println(resource);
+    }
+  }
+
+
 }

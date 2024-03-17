@@ -8,8 +8,8 @@ public class Simulation {
   private Event currentEvent;
 
   public Simulation(){
-    resourceInitialisation = new ResourceInitialisation("resources.txt");
-    eventPicker = new EventPicker("eventList.csv", resourceInitialisation);
+    resourceInitialisation = new ResourceInitialisation("newResources.xml");
+    eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
     Automation automation = new Automation(resourceInitialisation.getResources(),this);
   }
 
