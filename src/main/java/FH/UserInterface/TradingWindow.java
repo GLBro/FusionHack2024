@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -36,6 +37,9 @@ public class TradingWindow {
   private double budget = 10000;
   private final Label userLabel;
   private final Label budgetLabel;
+  private ArrayList<MaterialButton> mButtons = new ArrayList<MaterialButton>();
+  private ArrayList<SellButton> sButtons = new ArrayList<SellButton>();
+  private Simulation sim = new Simulation();
 
   public TradingWindow() {
     var pane = new BorderPane();
@@ -82,10 +86,10 @@ public class TradingWindow {
 
     pane.setCenter(layout);
 
-    addNewResource("Food", 5);
-    addNewResource("Stone", 10);
-    addNewResource("Wood", 7);
-    addNewResource("Cloth", 9);
+    addNewResource("Food", 25);
+    addNewResource("Stone", 25);
+    addNewResource("Wood", 25);
+    addNewResource("Cloth", 25);
 
     ArrayList<String> resources = new ArrayList<String>();
     resources.add("Wood");
@@ -97,6 +101,7 @@ public class TradingWindow {
     changes.add(17.0);
     changes.add(12.0);
     changes.add(8.0);
+    /*
     addNewEvent("Fire",  resources, changes);
     addNewEvent("Drought",  resources, changes);
     addNewEvent("War",  resources, changes);
@@ -114,7 +119,7 @@ public class TradingWindow {
     addNewEvent("Meteor",  resources, changes);
     addNewEvent("Farming",  resources, changes);
     addNewEvent("GoodSeason",  resources, changes);
-
+    */
     cycleEvents();
   }
 
@@ -136,33 +141,78 @@ public class TradingWindow {
     int leftSize = leftMats.getChildren().size();
     int centreSize = centreMats.getChildren().size();
     int rightSize = rightMats.getChildren().size();
+    MaterialButton buyButton = new MaterialButton(resource, cost, imagePath, sim);
+    SellButton sellButton = new SellButton(resource, cost, imagePath, sim);
+    mButtons.add(buyButton);
+    sButtons.add(sellButton);
     if (leftSize==centreSize && centreSize==rightSize) {
-      leftMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
-      leftMats.getChildren().add(new SellButton(resource, cost, imagePath));
+      leftMats.getChildren().add(buyButton);
+      leftMats.getChildren().add(sellButton);
     } else if (leftSize==centreSize && rightSize==centreSize-2) {
-      rightMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
-      rightMats.getChildren().add(new SellButton(resource, cost, imagePath));
+      rightMats.getChildren().add(buyButton);
+      rightMats.getChildren().add(sellButton);
     } else {
-      centreMats.getChildren().add(new MaterialButton(resource, cost, imagePath));
-      centreMats.getChildren().add(new SellButton(resource, cost, imagePath));
+      centreMats.getChildren().add(buyButton);
+      centreMats.getChildren().add(sellButton);
     }
   }
 
-  public void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes) {
+  public void addNewEvent(String eventType, ArrayList<String> resources, ArrayList<Double> changes, ArrayList<Double> costs) {
     eventStorer.getChildren().add(new EventBar(eventType, resources, changes));
+    int counter = 0;
+    for (String r : resources) {
+      for (MaterialButton b : mButtons) {
+        if (b.getText().contains(r)) {
+          b.setText("Buy "+r+"\n"+costs.get(counter)+" coins\n"+changes.get(counter)+"%");
+        }
+      }
+      for (SellButton s : sButtons) {
+        if (s.getText().contains(r)) {
+          s.setText("Sell "+r+"\n"+costs.get(counter)+" coins\n"+changes.get(counter)+"%");
+        }
+      }
+      counter++;
+    }
   }
 
   public void cycleEvents() {
-    Simulation sim = new Simulation();
     String event = sim.getEventName();
     ArrayList<String> resources = sim.getEventResources();
+    ArrayList<String> orderedResources = new ArrayList<String>();
+    if (resources.contains("Wood")) {
+      orderedResources.add("Wood");
+    } if (resources.contains("Stone")) {
+      orderedResources.add("Stone");
+    } if (resources.contains("Food")) {
+      orderedResources.add("Food");
+    } if (resources.contains("Cloth")) {
+      orderedResources.add("Cloth");
+    }
+    for (String d : orderedResources) {
+      System.out.println(d);
+    }
     double[][] costAndChange = sim.getResourceCostAndChange();
-    for (int i=0; i<costAndChange.length; i++) {
-      for (int j=0; j<costAndChange[i].length; j++) {
-        System.out.println(costAndChange[i][j]);
+    ArrayList<Double> cost = new ArrayList<>();
+    ArrayList<Double> change = new ArrayList<>();
+    for (double[] d : costAndChange) {
+      if (!(d[1] == (0.0))) {
+        cost.add(round(d[0], 2));
+        change.add(round(d[1], 2));
       }
     }
-  }
+    for (double d : change) {
+      System.out.println(d);
+    }
+    addNewEvent(event, resources, change, cost);
 
+  }
+  public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    long factor = (long) Math.pow(10, places);
+    value = value * factor;
+    long tmp = Math.round(value);
+    return (double) tmp / factor;
+  }
 
 }

@@ -2,7 +2,7 @@ package backEnd;
 public class Resource {
   private final String name;
   private double cost;
-  private double lastCost;
+  private final double lastCost = 25;
   private double percentChange;
 
 
@@ -12,9 +12,6 @@ public class Resource {
     this.percentChange = 0.00;
   }
 
-  public void setLastCost() {
-    this.lastCost = this.cost;
-  }
 
   public void setCost(double cost) {
     this.cost = cost;
@@ -29,8 +26,8 @@ public class Resource {
   }
 
   public void changeCost(double change){
-    this.cost *= (1+change/10);
-    this.percentChange = (this.cost/this.lastCost)*100;
+    this.cost *= (1+change/100);
+    this.percentChange = (this.cost/this.lastCost-1)*100;
   }
   public double getCost(){
     return this.cost;

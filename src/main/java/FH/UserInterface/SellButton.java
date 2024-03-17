@@ -1,5 +1,6 @@
 package FH.UserInterface;
 
+import backEnd.Simulation;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
@@ -9,7 +10,7 @@ import javafx.util.Duration;
 
 public class SellButton extends Button {
   private final String buttonName;
-  public SellButton(String text, double price, String imageName) {
+  public SellButton(String text, double price, String imageName, Simulation sim) {
     super("Sell "+text+"\n"+price+" coins\n0.0%");
     buttonName = text;
     ImageView imageView = new ImageView();
@@ -24,6 +25,10 @@ public class SellButton extends Button {
     this.setOnAction(e -> this.pressed());
     this.setOnMouseEntered(e -> this.setStyle("-fx-border-color: black; -fx-background-color: pink; -fx-border-width: 7"));
     this.setOnMouseExited(e -> this.setStyle("-fx-border-color: black; -fx-background-color: pink; -fx-border-width: 5"));
+    this.setOnAction(e -> {
+      sim.sell(sim.getResource(text));
+      this.setText("Sell "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"%");
+    });
   }
 
   private void pressed() {
@@ -34,9 +39,13 @@ public class SellButton extends Button {
     });
     pause.play();
   }
+  public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
 
-  public void updateCosts(double newCost, double newPercentage ) {
-    this.setText(buttonName+"\n"+newCost+" coins\n"+newPercentage+"%");
+    long factor = (long) Math.pow(10, places);
+    value = value * factor;
+    long tmp = Math.round(value);
+    return (double) tmp / factor;
   }
 
 }

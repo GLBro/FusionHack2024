@@ -69,4 +69,8 @@ public class Simulation {
     resource.changeCost(-0.5);
     return price;
   }
+
+  public Resource getResource(String name) {
+    return resourceInitialisation.fromName(name);
+  }
 }
