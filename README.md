@@ -15,7 +15,7 @@ When stocks are bought and sold the price increases/decreases respectively.
 
 
 ### What it is made for 
-As trading is a difficult and tricky area to enter as a young adult; It is made for education purposes to teach young people the basics of trading, so they go in less blind than we have. 
+As trading is a difficult and tricky area to enter as a young adult. It is made for education purposes to teach young people the basics of trading, so they go in less blind than we have. 
 
 ### How to open it 
 #### Run in IDE:
