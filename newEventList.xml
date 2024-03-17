@@ -3,7 +3,11 @@
   <event>
     <name>Fire</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Wood</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>

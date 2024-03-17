@@ -33,7 +33,7 @@ public class Simulation {
   public void changeResourcePrice(){
     int i = 0;
     for(Resource resource: currentEvent.getResourcesAffected()){
-      resource.changeCost(currentEvent.getResourceAffectChange()[i]);
+      resource.changeCost(currentEvent.getResourceAffectChange().get(i));
 
       i++;
     }

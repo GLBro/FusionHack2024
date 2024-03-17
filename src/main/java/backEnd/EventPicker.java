@@ -36,6 +36,7 @@ public class EventPicker {
           String resourceName = resourceElem.getTextContent().trim();
 
           boolean resourcePositive = resourceElem.getAttribute("positive").trim().equals("true");
+          System.out.println(resourcePositive);
           int resourceChange = Integer.parseInt(resourceElem.getAttribute("change").trim());
           resourceChange *= (resourcePositive ? 1 : -1);
 
@@ -55,7 +56,12 @@ public class EventPicker {
   public Event pickEvent(){
     int ub = events.size();
     int i = rand.nextInt(ub);
-    return events.get(i);
+
+    Event event = events.get(i);
+
+
+
+    return event;
   }
 
 }

@@ -6,7 +6,7 @@ public class Event {
   private String name;
   private ArrayList<Resource> resourcesAffected;
   // TODO: Need to initialise this variable (the one below) with randomised things
-  private double[] resourceAffectChange;
+  private ArrayList<Double> resourceAffectChange;
 
   public Event(String name) {
     this.name = name;
@@ -20,6 +20,7 @@ public class Event {
 
   public void addResource(Resource resource, double change) {
     this.resourcesAffected.add(resource);
+    this.resourceAffectChange.add(change);
   }
 
   public String getName() {
@@ -30,7 +31,7 @@ public class Event {
     return resourcesAffected;
   }
 
-  public double[] getResourceAffectChange() {
+  public ArrayList<Double> getResourceAffectChange() {
     return resourceAffectChange;
   }
 }
