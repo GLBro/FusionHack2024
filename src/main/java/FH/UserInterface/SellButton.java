@@ -10,7 +10,7 @@ import javafx.util.Duration;
 
 public class SellButton extends Button {
   private final String buttonName;
-  public SellButton(String text, double price, String imageName, Simulation sim) {
+  public SellButton(String text, double price, String imageName, Simulation sim, TradingWindow tw) {
     super("Sell "+text+"\n"+price+" coins\n0.0%");
     buttonName = text;
     ImageView imageView = new ImageView();
@@ -27,6 +27,7 @@ public class SellButton extends Button {
     this.setOnMouseExited(e -> this.setStyle("-fx-border-color: black; -fx-background-color: pink; -fx-border-width: 5"));
     this.setOnAction(e -> {
       sim.sell(sim.getResource(text));
+      tw.setBudget(sim.getBudget());
       this.setText("Sell "+text+"\n"+round(sim.getResource(text).getCost(),2)+" coins\n"+round(sim.getResource(text).getPercentChange(), 2)+"%");
     });
   }

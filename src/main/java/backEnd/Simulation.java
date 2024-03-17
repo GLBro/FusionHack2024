@@ -1,5 +1,8 @@
 package backEnd;
 
+import FH.UserInterface.MaterialButton;
+import FH.UserInterface.SellButton;
+
 import java.util.ArrayList;
 
 public class Simulation {
@@ -10,6 +13,7 @@ public class Simulation {
   private int food = 0;
   private int stone = 0;
   private int cloth = 0;
+  private double budget = 1000.00;
 
   public Simulation(){
     resourceInitialisation = new ResourceInitialisation("newResources.xml");
@@ -82,6 +86,7 @@ public class Simulation {
       cloth++;
       System.out.println(cloth);
     }
+    budget -= price;
     return price;
   }
   public double sell(Resource resource){
@@ -121,6 +126,8 @@ public class Simulation {
         cloth--;
         System.out.println(cloth);
       }
+
+      budget += price;
       return price;
     }
     else{
@@ -142,4 +149,11 @@ public class Simulation {
     return price;
   }
 
+  public double getBudget() {
+    return budget;
+  }
+
+  public void setBudget(double budget) {
+    this.budget = budget;
+  }
 }

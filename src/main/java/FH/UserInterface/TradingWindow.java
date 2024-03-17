@@ -34,7 +34,7 @@ public class TradingWindow {
   private final ScrollPane news;
   private final VBox eventStorer;
   private final String username = "Guest";
-  private double budget = 10000;
+  private double budget;
   private final Label userLabel;
   private final Label budgetLabel;
   private ArrayList<MaterialButton> mButtons = new ArrayList<MaterialButton>();
@@ -42,6 +42,7 @@ public class TradingWindow {
   private Simulation sim = new Simulation();
 
   public TradingWindow() {
+    budget = sim.getBudget();
     var pane = new BorderPane();
     this.scene = new Scene(pane, 600, 500);
     materials = new HBox(50);
@@ -141,8 +142,8 @@ public class TradingWindow {
     int leftSize = leftMats.getChildren().size();
     int centreSize = centreMats.getChildren().size();
     int rightSize = rightMats.getChildren().size();
-    MaterialButton buyButton = new MaterialButton(resource, cost, imagePath, sim);
-    SellButton sellButton = new SellButton(resource, cost, imagePath, sim);
+    MaterialButton buyButton = new MaterialButton(resource, cost, imagePath, sim, this);// Add this to the buttons so i can access budget?
+    SellButton sellButton = new SellButton(resource, cost, imagePath, sim, this);
     mButtons.add(buyButton);
     sButtons.add(sellButton);
     if (leftSize==centreSize && centreSize==rightSize) {
@@ -216,4 +217,7 @@ public class TradingWindow {
     return (double) tmp / factor;
   }
 
+  public void setBudget(double budget) {
+    this.budget = budget;
+  }
 }
