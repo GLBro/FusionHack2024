@@ -1,0 +1,173 @@
+Index: src/main/java/backEnd/Simulation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package backEnd;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Simulation {\r\n  private EventPicker eventPicker;\r\n  private ResourceInitialisation resourceInitialisation;\r\n  private Event currentEvent;\r\n\r\n  public Simulation(){\r\n    resourceInitialisation = new ResourceInitialisation(\"resources.txt\");\r\n    eventPicker = new EventPicker(\"eventList.csv\", resourceInitialisation);\r\n\r\n  }\r\n\r\n  // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL\r\n  public String getEventName(){\r\n    currentEvent = eventPicker.pickEvent();\r\n    return currentEvent.getName();\r\n\r\n  }\r\n\r\n  public String[] getEventResources(){\r\n    String[] resources = new String[currentEvent.getResourcesAffected().size()];\r\n\r\n    for (int i=0; i<currentEvent.getResourcesAffected().size();i++){\r\n      resources[i] = currentEvent.getResourcesAffected().get(i).getName();\r\n    }\r\n\r\n    return resources;\r\n  }\r\n\r\n  public void changeResourcePrice(){\r\n    int i = 0;\r\n    for(Resource resource: currentEvent.getResourcesAffected()){\r\n      resource.changeCost(currentEvent.getResourceAffectChange()[i]);\r\n\r\n      i++;\r\n    }\r\n  }\r\n\r\n  public String[] getResourceNames(){\r\n    ArrayList<Resource> resources;\r\n    resources = resourceInitialisation.getResources();\r\n    String[] resourceNames = new String[resources.size()];\r\n    for (int i=0;i<resources.size();i++){\r\n      resourceNames[i] = resources.get(i).getName();\r\n    }\r\n    return resourceNames;\r\n  }\r\n\r\n  public String[][] getResourceCostAndChange(){\r\n    // TODO: Write this, returns the cost and the %change for the resources\r\n    return new String[6][2];\r\n  }\r\n  // TODO: Need to write simulation functions for selling or buying stocks\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/backEnd/Simulation.java b/src/main/java/backEnd/Simulation.java
+--- a/src/main/java/backEnd/Simulation.java	(revision ced4ffe6b50282275505cbfb437d33a2a60c13ca)
++++ b/src/main/java/backEnd/Simulation.java	(date 1710623872068)
+@@ -49,9 +49,10 @@
+     return resourceNames;
+   }
+ 
+-  public String[][] getResourceCostAndChange(){
+-    // TODO: Write this, returns the cost and the %change for the resources
+-    return new String[6][2];
++  public double[][] getResourceCostAndChange(){
++    ArrayList<Resource> resources = resourceInitialisation.getResources();
++    new double[][] costAndChange
++    return new double[6][2];
+   }
+   // TODO: Need to write simulation functions for selling or buying stocks
+ }
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1710620592467)
++++ b/.idea/.gitignore	(date 1710620592467)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1710620592473)
++++ b/.idea/encodings.xml	(date 1710620592473)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1710620592455)
++++ b/.idea/compiler.xml	(date 1710620592455)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="FusionHack2024" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1710620592461)
++++ b/.idea/misc.xml	(date 1710620592461)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++    <option name="workspaceImportForciblyTurnedOn" value="true" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
++</project>
+\ No newline at end of file
+Index: .idea/google-java-format.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/google-java-format.xml b/.idea/google-java-format.xml
+new file mode 100644
+--- /dev/null	(date 1710620592492)
++++ b/.idea/google-java-format.xml	(date 1710620592492)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GoogleJavaFormatSettings">
++    <option name="enabled" value="false" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1710620592480)
++++ b/.idea/vcs.xml	(date 1710620592480)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1710620592485)
++++ b/.idea/jarRepositories.xml	(date 1710620592485)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file

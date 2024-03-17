@@ -1,0 +1,17 @@
+Index: src/main/java/backEnd/Simulation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package backEnd;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Simulation {\r\n  private EventPicker eventPicker;\r\n  private ResourceInitialisation resourceInitialisation;\r\n  private Event currentEvent;\r\n\r\n  public Simulation(){\r\n    resourceInitialisation = new ResourceInitialisation(\"resources.txt\");\r\n    eventPicker = new EventPicker(\"eventList.csv\", resourceInitialisation);\r\n    Automation automation = new Automation(resourceInitialisation.getResources(),this);\r\n  }\r\n\r\n  // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL\r\n  public String getEventName(){\r\n    currentEvent = eventPicker.pickEvent();\r\n    return currentEvent.getName();\r\n\r\n  }\r\n\r\n  public String[] getEventResources(){\r\n    String[] resources = new String[currentEvent.getResourcesAffected().size()];\r\n\r\n    for (int i=0; i<currentEvent.getResourcesAffected().size();i++){\r\n      resources[i] = currentEvent.getResourcesAffected().get(i).getName();\r\n    }\r\n\r\n    return resources;\r\n  }\r\n\r\n  public void changeResourcePrice(){\r\n    int i = 0;\r\n    for(Resource resource: currentEvent.getResourcesAffected()){\r\n      resource.changeCost(currentEvent.getResourceAffectChange()[i]);\r\n\r\n      i++;\r\n    }\r\n  }\r\n\r\n  public String[] getResourceNames(){\r\n    ArrayList<Resource> resources;\r\n    resources = resourceInitialisation.getResources();\r\n    String[] resourceNames = new String[resources.size()];\r\n    for (int i=0;i<resources.size();i++){\r\n      resourceNames[i] = resources.get(i).getName();\r\n    }\r\n    return resourceNames;\r\n  }\r\n\r\n  public double[][] getResourceCostAndChange(){\r\n    ArrayList<Resource> resources = resourceInitialisation.getResources();\r\n    double[][] costAndChange = new double[resources.size()][2];\r\n    return costAndChange;\r\n  }\r\n\r\n  public double buy(Resource resource){\r\n    double price = resource.getCost();\r\n    resource.changeCost(0.5);\r\n    return price;\r\n  }\r\n  public double sell(Resource resource){\r\n    double price = resource.getCost();\r\n    resource.changeCost(-0.5);\r\n    return price;\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/backEnd/Simulation.java b/src/main/java/backEnd/Simulation.java
+--- a/src/main/java/backEnd/Simulation.java	
++++ b/src/main/java/backEnd/Simulation.java	
+@@ -8,7 +8,7 @@
+   private Event currentEvent;
+ 
+   public Simulation(){
+-    resourceInitialisation = new ResourceInitialisation("resources.txt");
++    resourceInitialisation = new ResourceInitialisation("newResources.xml");
+     eventPicker = new EventPicker("eventList.csv", resourceInitialisation);
+     Automation automation = new Automation(resourceInitialisation.getResources(),this);
+   }

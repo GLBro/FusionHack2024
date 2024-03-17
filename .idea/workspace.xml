@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d66eadaa-dbee-4ccc-a550-3ab2c667022b" name="Changes" comment="fix to getCost()" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Lauren-Back-End" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2dlsQqzSqyUv1kA2VGWMo6gzFq2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Test.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d66eadaa-dbee-4ccc-a550-3ab2c667022b" name="Changes" comment="" />
+      <created>1710593986177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710593986177</updated>
+      <workItem from="1710593987281" duration="11978000" />
+      <workItem from="1710611382091" duration="5524000" />
+      <workItem from="1710619508165" duration="8317000" />
+      <workItem from="1710655302067" duration="221000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding back end">
+      <option name="closed" value="true" />
+      <created>1710594728017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710594728017</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding basic backend files">
+      <option name="closed" value="true" />
+      <created>1710595110787</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710595110787</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initialisation of Resource">
+      <option name="closed" value="true" />
+      <created>1710595662078</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710595662078</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Somthings gone wrong">
+      <option name="closed" value="true" />
+      <created>1710595838030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710595838030</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Base of Resource">
+      <option name="closed" value="true" />
+      <created>1710596237411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710596237411</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Made EventPicker">
+      <option name="closed" value="true" />
+      <created>1710596389021</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710596389021</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Made EventPicker">
+      <option name="closed" value="true" />
+      <created>1710596885201</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710596885201</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added pickEvent">
+      <option name="closed" value="true" />
+      <created>1710597671206</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710597671206</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update Pickevent and add ResourceInitilisation">
+      <option name="closed" value="true" />
+      <created>1710598614831</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710598614831</updated>
+    </task>
+    <task id="LOCAL-00010" summary="basic set up for ResourceInitilisation">
+      <option name="closed" value="true" />
+      <created>1710599309900</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710599309900</updated>
+    </task>
+    <task id="LOCAL-00011" summary="string name to class">
+      <option name="closed" value="true" />
+      <created>1710599762300</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1710599762300</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix">
+      <option name="closed" value="true" />
+      <created>1710604166072</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1710604166072</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Create new Class Simulation">
+      <option name="closed" value="true" />
+      <created>1710609223361</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1710609223361</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update">
+      <option name="closed" value="true" />
+      <created>1710609442031</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1710609442031</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changes to event">
+      <option name="closed" value="true" />
+      <created>1710610261823</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1710610261823</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updates (Mostly to Simulation)">
+      <option name="closed" value="true" />
+      <created>1710611241213</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1710611241213</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changed a couple things in event and added TODOs for when i get back">
+      <option name="closed" value="true" />
+      <created>1710614513326</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1710614513326</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Small clean">
+      <option name="closed" value="true" />
+      <created>1710614566439</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710614566439</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Adds in percentage change">
+      <option name="closed" value="true" />
+      <created>1710619191476</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1710619191476</updated>
+    </task>
+    <task id="LOCAL-00020" summary="todo in event">
+      <option name="closed" value="true" />
+      <created>1710619463936</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1710619463936</updated>
+    </task>
+    <task id="LOCAL-00021" summary="get smth idk">
+      <option name="closed" value="true" />
+      <created>1710624454990</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710624454990</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix to getCost()">
+      <option name="closed" value="true" />
+      <created>1710629998005</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1710629998005</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding back end" />
+    <MESSAGE value="Adding basic backend files" />
+    <MESSAGE value="Initialisation of Resource" />
+    <MESSAGE value="Somthings gone wrong" />
+    <MESSAGE value="Base of Resource" />
+    <MESSAGE value="Made EventPicker" />
+    <MESSAGE value="added pickEvent" />
+    <MESSAGE value="update Pickevent and add ResourceInitilisation" />
+    <MESSAGE value="basic set up for ResourceInitilisation" />
+    <MESSAGE value="string name to class" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="Create new Class Simulation" />
+    <MESSAGE value="update" />
+    <MESSAGE value="changes to event" />
+    <MESSAGE value="Updates (Mostly to Simulation)" />
+    <MESSAGE value="Changed a couple things in event and added TODOs for when i get back" />
+    <MESSAGE value="Small clean" />
+    <MESSAGE value="Adds in percentage change" />
+    <MESSAGE value="todo in event" />
+    <MESSAGE value="get smth idk" />
+    <MESSAGE value="fix to getCost()" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix to getCost()" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/backEnd/Test.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

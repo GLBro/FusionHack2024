@@ -1,0 +1,212 @@
+Index: src/main/java/backEnd/Event.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package backEnd;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Event {\r\n  private String name;\r\n  private ArrayList<Resource> resourcesAffected;\r\n  // TODO: Need to initialise this variable (the one below) with randomised things\r\n  private double[] resourceAffectChange;\r\n\r\n  public Event(String name) {\r\n    this.name = name;\r\n    this.resourcesAffected = new ArrayList<>();\r\n  }\r\n\r\n  public Event(String name, ArrayList<Resource> resourcesAffected) {\r\n    this(name);\r\n    this.resourcesAffected.addAll(resourcesAffected);\r\n  }\r\n\r\n  public void addResource(Resource resource, double change) {\r\n    this.resourcesAffected.add(resource);\r\n  }\r\n\r\n  public String getName() {\r\n    return name;\r\n  }\r\n\r\n  public ArrayList<Resource> getResourcesAffected() {\r\n    return resourcesAffected;\r\n  }\r\n\r\n  public double[] getResourceAffectChange() {\r\n    return resourceAffectChange;\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/backEnd/Event.java b/src/main/java/backEnd/Event.java
+--- a/src/main/java/backEnd/Event.java	(revision 1c67e109a81c45dabae3c1eb19acc752cc5b0ddf)
++++ b/src/main/java/backEnd/Event.java	(date 1710638099842)
+@@ -5,7 +5,6 @@
+ public class Event {
+   private String name;
+   private ArrayList<Resource> resourcesAffected;
+-  // TODO: Need to initialise this variable (the one below) with randomised things
+   private double[] resourceAffectChange;
+ 
+   public Event(String name) {
+Index: src/main/java/backEnd/Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package backEnd;\r\n\r\npublic class Test {\r\n  private EventPicker eventPicker;\r\n  private ResourceInitialisation resourceInitialisation;\r\n\r\n  public Test() {\r\n    resourceInitialisation = new ResourceInitialisation(\"newResources.xml\");\r\n    eventPicker = new EventPicker(\"newEventList.xml\", resourceInitialisation);\r\n    System.out.println(this.eventPicker.pickEvent());\r\n  }\r\n  public static void main(String[] args) {\r\n    Test test = new Test();\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/backEnd/Test.java b/src/main/java/backEnd/Test.java
+--- a/src/main/java/backEnd/Test.java	(revision 1c67e109a81c45dabae3c1eb19acc752cc5b0ddf)
++++ b/src/main/java/backEnd/Test.java	(date 1710638284353)
+@@ -5,9 +5,10 @@
+   private ResourceInitialisation resourceInitialisation;
+ 
+   public Test() {
+-    resourceInitialisation = new ResourceInitialisation("newResources.xml");
+-    eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
+-    System.out.println(this.eventPicker.pickEvent());
++    Simulation sim = new Simulation();
++    // resourceInitialisation = new ResourceInitialisation("newResources.xml");
++    // eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
++    System.out.println(sim.getEventName());
+   }
+   public static void main(String[] args) {
+     Test test = new Test();
+Index: src/main/java/backEnd/Simulation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package backEnd;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Simulation {\r\n  private EventPicker eventPicker;\r\n  private ResourceInitialisation resourceInitialisation;\r\n  private Event currentEvent;\r\n\r\n  public Simulation(){\r\n    resourceInitialisation = new ResourceInitialisation(\"resources.txt\");\r\n    eventPicker = new EventPicker(\"eventList.csv\", resourceInitialisation);\r\n    Automation automation = new Automation(resourceInitialisation.getResources(),this);\r\n  }\r\n\r\n  // MUST BE CALLED BEFORE getEventResources OTHERWISE currentEvent IS NULL\r\n  public String getEventName(){\r\n    currentEvent = eventPicker.pickEvent();\r\n    return currentEvent.getName();\r\n\r\n  }\r\n\r\n  public String[] getEventResources(){\r\n    String[] resources = new String[currentEvent.getResourcesAffected().size()];\r\n\r\n    for (int i=0; i<currentEvent.getResourcesAffected().size();i++){\r\n      resources[i] = currentEvent.getResourcesAffected().get(i).getName();\r\n    }\r\n\r\n    return resources;\r\n  }\r\n\r\n  public void changeResourcePrice(){\r\n    int i = 0;\r\n    for(Resource resource: currentEvent.getResourcesAffected()){\r\n      resource.changeCost(currentEvent.getResourceAffectChange()[i]);\r\n\r\n      i++;\r\n    }\r\n  }\r\n\r\n  public String[] getResourceNames(){\r\n    ArrayList<Resource> resources;\r\n    resources = resourceInitialisation.getResources();\r\n    String[] resourceNames = new String[resources.size()];\r\n    for (int i=0;i<resources.size();i++){\r\n      resourceNames[i] = resources.get(i).getName();\r\n    }\r\n    return resourceNames;\r\n  }\r\n\r\n  public double[][] getResourceCostAndChange(){\r\n    ArrayList<Resource> resources = resourceInitialisation.getResources();\r\n    double[][] costAndChange = new double[resources.size()][2];\r\n    return costAndChange;\r\n  }\r\n\r\n  public double buy(Resource resource){\r\n    double price = resource.getCost();\r\n    resource.changeCost(0.5);\r\n    return price;\r\n  }\r\n  public double sell(Resource resource){\r\n    double price = resource.getCost();\r\n    resource.changeCost(-0.5);\r\n    return price;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/backEnd/Simulation.java b/src/main/java/backEnd/Simulation.java
+--- a/src/main/java/backEnd/Simulation.java	(revision 1c67e109a81c45dabae3c1eb19acc752cc5b0ddf)
++++ b/src/main/java/backEnd/Simulation.java	(date 1710638099836)
+@@ -8,8 +8,8 @@
+   private Event currentEvent;
+ 
+   public Simulation(){
+-    resourceInitialisation = new ResourceInitialisation("resources.txt");
+-    eventPicker = new EventPicker("eventList.csv", resourceInitialisation);
++    resourceInitialisation = new ResourceInitialisation("newResources.xml");
++    eventPicker = new EventPicker("newEventList.xml", resourceInitialisation);
+     Automation automation = new Automation(resourceInitialisation.getResources(),this);
+   }
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1710637961650)
++++ b/.idea/misc.xml	(date 1710637961650)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++    <option name="workspaceImportForciblyTurnedOn" value="true" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1710637961607)
++++ b/.idea/vcs.xml	(date 1710637961607)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1710637961614)
++++ b/.idea/compiler.xml	(date 1710637961614)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="FusionHack2024" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1710637961636)
++++ b/.idea/.gitignore	(date 1710637961636)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1710637961643)
++++ b/.idea/jarRepositories.xml	(date 1710637961643)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/google-java-format.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/google-java-format.xml b/.idea/google-java-format.xml
+new file mode 100644
+--- /dev/null	(date 1710637961620)
++++ b/.idea/google-java-format.xml	(date 1710637961620)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GoogleJavaFormatSettings">
++    <option name="enabled" value="false" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1710637961628)
++++ b/.idea/encodings.xml	(date 1710637961628)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
