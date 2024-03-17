@@ -13,8 +13,8 @@ Our Project is a trading game, that uses fake money and resources.
 Our Project allows the user to buy and sell stocks in the four areas we have created (Stone, Wood, Food, Cloth). 
 When stocks are bought and sold the price increases/decreases respectively. 
 
-We also introduced events into the game. There are 18 events that were randomly picked, theese events all affect one or more resource in a positive or negative way (E.g Drought decreases food avialable and Environmental Riot increases wood available). This causes more unpredictability as it is not just buying and selling stocks that causes the price to increase and decrease. 
-Another thing we introduced was automation. In this we made 4 threads that individually also buy and sell stocks meaning that they will also fluctuate from these actions making it seem like there are other people playing, giving the user a more realistic feel in the game.
+We also introduced events into the game. There are 18 events that were randomly picked, these events all affect one or more resources in a positive or negative way (E.g Drought decreases food avialable and Environmental Riot increases wood available). This causes more unpredictability as it is not just buying and selling stocks that causes the price to increase and decrease. 
+Another thing we introduced was automation. In this we made another thread that buys and sells stocks meaning that they will also fluctuate from these actions making it seem like there are other people playing, giving the user a more realistic feel in the game.
 
 
 
