@@ -13,107 +13,231 @@
   <event>
     <name>Drought</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Food</resource>
+      <resource>
+        <name>Dood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>War</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Wood</resource>
-      <resource positive="false" change="10">Food</resource>
-      <resource positive="false" change="10">Stone</resource>
-      <resource positive="false" change="10">Cloth</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Food</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Stone</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Cloth</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Tsunami</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Wood</resource>
-      <resource positive="false" change="10">Food</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Food</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Volcanic Eruption</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Wood</resource>
-      <resource positive="false" change="10">Food</resource>
-      <resource positive="true" change="10">Stone</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Food</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Stone</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Population Increase</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Food</resource>
-      <resource positive="false" change="10">Cloth</resource>
+      <resource>
+        <name>Food</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Cloth</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Population Decrease</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Food</resource>
-      <resource positive="true" change="10">Cloth</resource>
+      <resource>
+        <name>Food</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Cloth</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Environmental riot</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Wood</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Wooden Housing</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Stone</resource>
-      <resource positive="false" change="10">Wood</resource>
+      <resource>
+        <name>Stone</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Stone Housing</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Wood</resource>
-      <resource positive="false" change="10">Stone</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Stone</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Roads</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Stone</resource>
+      <resource>
+        <name>Stone</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Tornado</name>
     <resourcesAffected>
-      <resource positive="false" change="10">Stone</resource>
-      <resource positive="false" change="10">Wood</resource>
-      <resource positive="false" change="10">Cloth</resource>
-      <resource positive="false" change="10">Food</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Food</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Stone</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Cloth</name>
+        <positive>false</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Technology</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Stone</resource>
-      <resource positive="true" change="10">Wood</resource>
-      <resource positive="true" change="10">Cloth</resource>
-      <resource positive="true" change="10">Food</resource>
+      <resource>
+        <name>Wood</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Food</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Stone</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
+      <resource>
+        <name>Cloth</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Meteor</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Stone</resource>
+      <resource>
+        <name>Stone</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Farming</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Food</resource>
+      <resource>
+        <name>Food</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
   <event>
     <name>Good Season</name>
     <resourcesAffected>
-      <resource positive="true" change="10">Food</resource>
+      <resource>
+        <name>Food</name>
+        <positive>true</positive>
+        <change>10</change>
+      </resource>
     </resourcesAffected>
   </event>
 </events>
